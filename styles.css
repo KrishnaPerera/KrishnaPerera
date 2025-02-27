@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: radial-gradient(circle, #1a1a2e, #16213e, #0f3460);
+    color: rgb(254, 254, 254);
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    font-size: 3.3em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.bg-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    animation: pulseBg 5s infinite alternate ease-in-out;
+}
+
+@keyframes pulseBg {
+    0% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.05); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 0.5; }
+}
+
+.watermark {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 0.8em;
+    opacity: 0.5;
+}
+
+.animated-watermark {
+    position: absolute;
+    font-size: 3.4em;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.244);
+    pointer-events: none;
+    animation: moveWatermark 5s infinite ease-in-out;
+}
+
+.animated-watermark.left {
+    left: 10%; /* Starting position for left watermark */
+    top: 50%;
+    transform: translateY(-50%);
+    animation-name: moveLeft; /* Specific animation for left watermark */
+}
+
+.animated-watermark.right {
+    right: 10%; /* Starting position for right watermark */
+    top: 50%;
+    transform: translateY(-50%);
+    animation-name: moveRight; /* Specific animation for right watermark */
+}
+
+@keyframes moveLeft {
+    0% { transform: translateY(-50%) translateX(0); opacity: 0.2; }
+    50% { transform: translateY(-50%) translateX(-20px); opacity: 0.4; }
+    100% { transform: translateY(-50%) translateX(0); opacity: 0.2; }
+}
+
+@keyframes moveRight {
+    0% { transform: translateY(-50%) translateX(0); opacity: 0.2; }
+    50% { transform: translateY(-50%) translateX(20px); opacity: 0.4; }
+    100% { transform: translateY(-50%) translateX(0); opacity: 0.2; }
+}
